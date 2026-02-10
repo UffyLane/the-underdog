@@ -1,27 +1,34 @@
 import "./EventCard.css";
 
 export default function EventCard({ eventItem }) {
-  const date = eventItem?.datetime ? new Date(eventItem.datetime) : null;
-  const readableDate = date ? date.toLocaleString() : "Date TBD";
+  const name = eventItem?.name;
+  const date = eventItem?.dates?.start?.localDate;
 
-  const venue = eventItem?.venue?.name || "Venue TBD";
-  const city = eventItem?.venue?.city || "";
-  const region = eventItem?.venue?.region || "";
-  const country = eventItem?.venue?.country || "";
-  const location = [city, region, country].filter(Boolean).join(", ");
+  const venue = eventItem?._embedded?.venues?.[0]?.name;
+  const city = eventItem?._embedded?.venues?.[0]?.city?.name;
+  const state = eventItem?._embedded?.venues?.[0]?.state?.stateCode;
 
-  const ticketUrl = eventItem?.offers?.[0]?.url;
+  const ticketUrl = eventItem?.url;
 
   return (
     <li className="event">
       <article className="event__card">
-        <h2 className="event__title">{venue}</h2>
-        <p className="event__meta">{readableDate}</p>
-        <p className="event__meta">{location}</p>
+        <h2 className="event__title">{name}</h2>
+        <p className="event__meta">
+          {date} — {venue}
+        </p>
+        <p className="event__meta">
+          {city}, {state}
+        </p>
 
         {ticketUrl && (
-          <a className="event__link" href={ticketUrl} target="_blank" rel="noreferrer">
-            Tickets
+          <a
+            className="event__link"
+            href={ticketUrl}
+            target="_blank"
+            rel="noreferrer"
+          >
+            View Tickets
           </a>
         )}
       </article>

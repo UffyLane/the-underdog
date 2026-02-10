@@ -6,7 +6,8 @@ import Footer from "./components/Footer/Footer";
 import Home from "./pages/Home/Home";
 import Profile from "./pages/Profile/Profile";
 
-import { getArtistEvents } from "./utils/api";
+import { searchEvents } from "./utils/api";
+
 import { MIDWEST_STATES } from "./utils/constants";
 
 export default function App() {
@@ -16,11 +17,14 @@ export default function App() {
   const [errorMessage, setErrorMessage] = useState(""); // string ✅
 
   const midwestEvents = useMemo(() => {
-    return events.filter((eventItem) => {
-      const region = eventItem?.venue?.region;
-      return region && MIDWEST_STATES.includes(region);
-    });
-  }, [events]);
+  return events.filter((eventItem) => {
+    const stateCode =
+      eventItem?._embedded?.venues?.[0]?.state?.stateCode;
+
+    return stateCode && MIDWEST_STATES.includes(stateCode);
+  });
+}, [events]);
+
 
   const handleSearch = (searchValue) => {
     setArtistName(searchValue);
@@ -39,13 +43,14 @@ export default function App() {
   useEffect(() => {
     if (!artistName) return;
 
-    getArtistEvents(artistName)
+    searchEvents(artistName)
       .then((data) => {
-        setEvents(Array.isArray(data) ? data : []);
+        const eventResults = data?._embedded?.events || [];
+        setEvents(eventResults);
       })
       .catch(() => {
         setEvents([]);
-        setErrorMessage("Something went wrong loading events. Try again.");
+        setErrorMessage("Could not load events. Try again.");
       })
       .finally(() => setIsLoading(false));
   }, [artistName]);

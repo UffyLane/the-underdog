@@ -1,5 +1,7 @@
-export const BANDSINTOWN_BASE_URL = "https://rest.bandsintown.com";
-export const BANDSINTOWN_APP_ID = "the-underdog";
+export const TICKETMASTER_BASE_URL =
+  "https://app.ticketmaster.com/discovery/v2";
+
+export const TICKETMASTER_API_KEY = "RAf4wDdUccdTILEcxoAtxKOSUOGAor84";
 
 export const MIDWEST_STATES = [
   "IL",
