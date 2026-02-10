@@ -1,0 +1,35 @@
+.home {
+  max-width: 1100px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.home__header {
+  margin-bottom: 18px;
+}
+
+.home__title {
+  margin: 0 0 10px;
+  font-size: 44px;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+}
+
+.home__subtitle {
+  margin: 0;
+  font-size: 16px;
+  color: rgba(233, 238, 245, 0.75);
+}
+
+.home__empty {
+  margin: 18px 0 0;
+  padding: 14px 14px;
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.04);
+  color: rgba(233, 238, 245, 0.85);
+}
+
+.home__artist {
+  font-weight: 700;
+}

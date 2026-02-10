@@ -1,0 +1,24 @@
+.events {
+  margin-top: 18px;
+}
+
+.events__list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 12px;
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 640px) {
+  .events__list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 960px) {
+  .events__list {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}

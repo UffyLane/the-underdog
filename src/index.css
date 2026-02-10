@@ -11,7 +11,18 @@ body {
 
 body {
   margin: 0;
+  background: #0b0d10;
+  color: #e9eef5;
   font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  color: inherit;
 }
 
 .page {
@@ -22,5 +33,12 @@ body {
 
 .page__content {
   flex: 1;
-  padding: 16px;
+  padding: 24px 16px;
+  width: 100%;
+}
+
+@media (min-width: 768px) {
+  .page__content {
+    padding: 32px 24px;
+  }
 }
