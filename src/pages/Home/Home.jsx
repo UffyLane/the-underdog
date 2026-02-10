@@ -34,8 +34,10 @@ export default function Home({
       </div>
 
       {/* CONTENT CARD */}
-      <div className="home__panel">
-        <SearchForm onSearch={onSearch} />
+<div className="home__panel">
+  <div className="home__search-sticky">
+    <SearchForm onSearch={onSearch} />
+  </div>
 
         {isLoading && <Loader />}
         {errorMessage && <ErrorBanner message={errorMessage} />}

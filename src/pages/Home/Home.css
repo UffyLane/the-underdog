@@ -99,3 +99,16 @@
   color: rgba(233, 238, 245, 0.72);
   font-size: 14px;
 }
+
+.home__search-sticky {
+  position: sticky;
+  top: 66px; /* header height buffer */
+  z-index: 20;
+  padding-top: 12px;
+
+  /* makes it feel like a floating bar */
+  background: rgba(11, 13, 16, 0.85);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  border-radius: 18px;
+}
