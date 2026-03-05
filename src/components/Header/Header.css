@@ -67,3 +67,51 @@
   background: rgba(255, 255, 255, 0.1);
   color: #ffffff;
 }
+
+
+
+.header__auth-btn:hover {
+  text-decoration: underline;
+}
+
+.header__auth-btn_signup {
+  font-weight: 600;
+}
+
+.header__auth-btn_logout {
+  color: crimson;
+}
+
+.header__auth {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.header__btn {
+  font: inherit;
+  padding: 10px 14px;
+  border-radius: 10px;
+  border: 1px solid rgba(255,255,255,0.22);
+  cursor: pointer;
+  transition: transform 0.12s ease, opacity 0.12s ease;
+}
+
+.header__btn:active {
+  transform: scale(0.98);
+}
+
+.header__btn--ghost {
+  background: rgba(255,255,255,0.08);
+  color: rgba(255,255,255,0.92);
+}
+
+.header__btn--primary {
+  background: rgba(255,255,255,0.92);
+  color: #111;
+  border-color: rgba(255,255,255,0.92);
+}
+
+.header__btn:hover {
+  opacity: 0.92;
+}

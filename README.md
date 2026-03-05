@@ -1,16 +1,127 @@
-# React + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+---
 
-Currently, two official plugins are available:
+# Frontend README 
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+```markdown
+# The UnderDog Frontend
 
-## React Compiler
+The frontend for **The UnderDog**, a web application that helps users discover live music events in the Midwest and save their favorites.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+This application consumes the UnderDog API and integrates with the Ticketmaster Discovery API to retrieve concert information.
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Features
+
+- Search concerts by artist
+- Midwest-specific filtering
+- Save favorite events
+- Secure login and signup
+- Profile dashboard
+- Toast notifications for user feedback
+- Protected routes
+- Responsive UI
+
+---
+
+## Tech Stack
+
+- React
+- Vite
+- React Router
+- Context API
+- Ticketmaster API
+- Custom Express backend
+
+---
+
+## Project Structure
+
+src
+│
+├── components
+│ ├── AuthModal
+│ ├── ErrorBanner
+│ ├── EventCard
+│ ├── EventList
+│ ├── Header
+│ ├── Footer
+│ ├── Loader
+│ ├── SearchForm
+│ └── Toast
+│
+├── pages
+│ ├── Home
+│ └── Profile
+│
+├── contexts
+│
+├── utils
+│ ├── api.js
+│ ├── apiClient.js
+│ └── auth.js
+│
+└── App.jsx
+
+
+---
+
+## Installation
+
+```bash
+git clone https://github.com/yourusername/underdog
+cd frontend
+npm install
+Environment Variables
+
+Create a .env file:
+
+VITE_API_URL=http://localhost:3000
+VITE_TICKETMASTER_KEY=your_ticketmaster_key
+Running the App
+
+Start development server:
+
+npm run dev
+
+Application will run at:
+
+http://localhost:5173
+Application Flow
+
+User searches for an artist
+
+Ticketmaster API returns event results
+
+Events are filtered to Midwest states
+
+Logged-in users can save events
+
+Saved events appear in the profile dashboard
+
+Authentication
+
+Authentication uses JWT tokens issued by the backend API.
+
+Token storage:
+
+localStorage
+
+Protected routes redirect unauthenticated users to sign-in.
+
+Future Improvements
+
+Artist following
+
+Personalized event feed
+
+Spotify/Tidal integration
+
+Notifications for upcoming concerts
+
+Event calendar view
+
+Author
+
+Stuart G Clark Jr
